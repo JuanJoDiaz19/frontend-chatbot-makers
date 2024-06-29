@@ -1,15 +1,15 @@
-require('dotenv').config();
-
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const apiKey = "AIzaSyBJKci2o_V81-lHcYFcmDIUtFCAX37p3_8";
+const apiKey = process.env.REACT_APP_GEMINI_API_KEY ;
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
-console.log("Generative AI initialized:", genAI);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 async function sendMessageToGemini(message) {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
+    console.log("Generative AI initialized:", genAI);
+    
     const resultPromise = model.generateContent(message);
     
     return resultPromise

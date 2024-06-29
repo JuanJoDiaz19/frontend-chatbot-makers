@@ -2,12 +2,14 @@ import { useState } from "react";
 import './chat-bot-page-styles.css';
 import  Header  from '../components/Header';
 import Footer from '../components/Footer'
+import { sendMessageToGemini } from "../geminiapi";
 
 function ChatBotPage() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
+    console.log(await sendMessageToGemini('HOLIIIII'));
     console.log("sent");
   }
   
