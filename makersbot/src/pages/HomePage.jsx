@@ -1,28 +1,26 @@
 import React from 'react';
-//import './home-page-styles.css';
+import './home-page-styles.css';
 
 function HomePage() {
   return (
     <div style={{
-        height: '90vh',
+        //height: '90vh',
         display: 'flex',
         justifyContent: 'center'
     }}
     >
         <section style={{
-            width: '80%',
+            width: '60%',
             padding: '40px'
         }}>
             
-            <h1 style={{
-                fontSize: '3rem'
-            }}>Makers Chatbot</h1>
-
-            <div className="section">
-                    <h2>Introduction</h2>
-                    <p>Esteemed members of Makers Tech,</p>
-                    <p>Today, we are excited to present our innovative ChatBot solution designed to revolutionize your ecommerce platform.</p>
-                </div>
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '2rem'}}>
+                <img src="./makers-logo.png" style={{height: '10rem'}} alt="" />
+                <h1 style={{
+                    fontSize: '3rem',
+                    paddingLeft: '2rem'
+                }}>Makers Chatbot</h1>
+            </div>
 
                 <div className="section">
                     <h2>Key Features and Functionality</h2>
@@ -60,10 +58,7 @@ function HomePage() {
                     </ul>
                 </div>
 
-                <div className="section">
-                    <h2>Conclusion</h2>
-                    <p>Thank you for your attention. We are excited about the opportunity to collaborate and implement this transformative technology for Makers Tech.</p>
-                </div>
+            
         </section>
     </div>
   )

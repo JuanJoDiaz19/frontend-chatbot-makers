@@ -6,13 +6,13 @@ function Header() {
   return (
     <header style={{
         height: '4rem',
-        padding: '0 8rem',
+        padding: '0 20%',
         display: 'flex',
         alignItems: 'center',
         borderBottom: '#D3D3D3 2px solid',
         justifyContent: 'space-between'
     }}>
-          <Link to='/' style={{
+        <Link to='/' style={{
                 display: 'flex',
                 alignItems: 'center',
                 textDecoration: 'none',
@@ -35,7 +35,7 @@ function Header() {
                 <Link to={'/'} 
                         style={{textDecoration: 'none',
                                 color: 'inherit'}}> 
-                        <li className='list-item-nav-bar'>Inicio</li> 
+                        <li className='list-item-nav-bar'>Home</li> 
                 </Link>
 
                 <Link to={'/chatbot'} 
