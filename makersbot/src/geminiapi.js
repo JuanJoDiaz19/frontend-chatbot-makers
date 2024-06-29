@@ -1,16 +1,25 @@
+require('dotenv').config();
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Access your API key as an environment variable (see "Set up your API key" above)
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const apiKey = "AIzaSyBJKci2o_V81-lHcYFcmDIUtFCAX37p3_8";
 
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+const genAI = new GoogleGenerativeAI(apiKey);
 
-async function run(messageToApi) {
+console.log("Generative AI initialized:", genAI);
 
-    const result = await model.generateContent(messageToApi);
-    const response = await result.response;
-    const text = response.text();
-    console.log(text);
+async function sendMessageToGemini(message) {
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const resultPromise = model.generateContent(message);
+    
+    return resultPromise
+        .then(result => result.response.text())
+        .catch(error => {
+            console.error("Error sending message to Gemini:", error);
+            throw error; 
+        });
 }
-  
-run();
+
+module.exports = {
+    sendMessageToGemini
+};
