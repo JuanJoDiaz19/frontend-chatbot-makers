@@ -22,7 +22,7 @@
   }
   
   .user-message {
-    background-color: antiquewhite;
+    background-color: #8496EF;
     color: black;
     align-self: flex-end;
     margin: 5px 0;
@@ -34,8 +34,8 @@
   }
   
   .bot-message {
-    background-color: forestgreen;
-    color: white;
+    background-color: #74D3AB;
+    color: black;
     align-self: flex-start;
     margin: 5px 0;
     padding: 10px;
