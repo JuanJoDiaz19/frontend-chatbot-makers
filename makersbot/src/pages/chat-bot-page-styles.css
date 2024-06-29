@@ -1,13 +1,10 @@
-.App{
-    height: 100vh;
-  }
-  
+
   .chat-wrapper{ 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 70vh;
     overflow: hidden; 
     padding: 2rem 0;
   }
@@ -25,7 +22,7 @@
   }
   
   .user-message {
-    background-color: antiquewhite;
+    background-color: #8496EF;
     color: black;
     align-self: flex-end;
     margin: 5px 0;
@@ -37,8 +34,8 @@
   }
   
   .bot-message {
-    background-color: forestgreen;
-    color: white;
+    background-color: #74D3AB;
+    color: black;
     align-self: flex-start;
     margin: 5px 0;
     padding: 10px;

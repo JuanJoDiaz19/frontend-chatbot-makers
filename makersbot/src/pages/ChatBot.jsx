@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './chat-bot-page-styles.css';
-import  Header  from '../components/Header';
-import Footer from '../components/Footer'
+import {run} from '../geminiapi'; 
 
 function ChatBotPage() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
 
+  useEffect(() => {
+    console.log(process.env.REACT_APP_GEMINI_API_KEY)
+  }, [])
+
   const handleSend = () => {
-    console.log("sent");
+    run("hello");
   }
   
   

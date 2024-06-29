@@ -3,6 +3,7 @@ import {Route, Routes, BrowserRouter, Navigate  } from  'react-router-dom';
 import ChatBotPage from '../pages/ChatBot';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import HomePage from '../pages/HomePage';
 
 
 function Router() {
@@ -10,7 +11,8 @@ function Router() {
     <BrowserRouter>
         <Header/>
             <Routes>
-                <Route path="/" element = { <ChatBotPage/> }/>
+                <Route path="/" element = { <HomePage/> }/>
+                <Route path="/chatbot" element = { <ChatBotPage/> }/>
             </Routes>
         <Footer/>
     </BrowserRouter>
