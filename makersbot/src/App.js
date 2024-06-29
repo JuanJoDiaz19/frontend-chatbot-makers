@@ -15,6 +15,27 @@ function App() {
       <div className="chat">
         <div className="user-message">this is a user message</div>
         <div className="bot-message">this is a both message</div>
+        
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
+
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
+
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
+
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
+
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
+
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
+
+        <div className="user-message">this is a user message</div>
+        <div className="bot-message">this is a both message</div>
       </div>
 
       <div className="input-container">

@@ -1,37 +1,77 @@
-.App{
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden; 
+  padding: 0px 10px;
 }
 
-.chat{
+.chat {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 80%;
-  overflow-y: scroll;
+  flex: 1;
+  width: 100%;
+  overflow: auto; 
   padding: 10px;
+  margin: 10px;
 }
 
 .user-message {
   background-color: antiquewhite;
   color: black;
-  align-items: flex-end;
+  align-self: flex-end;
   margin: 5px 0;
   padding: 10px;
   border-radius: 10px;
-  max-width: 50%;
+  max-width: 70%;
   word-wrap: break-word;
+  margin-bottom: 1px; 
 }
 
 .bot-message {
+  background-color: forestgreen;
+  color: white;
+  align-self: flex-start;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin-bottom: 5px; /* Añade espacio de margen entre mensajes */
+}
+
+.input-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 20%;
+  width: 50%;
+  padding: 5px;
+  margin-top: 5px; /* Añade espacio de margen arriba del contenedor de entrada */
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid forestgreen;
+  outline: none;
+}
+
+button {
+  width: 20%;
   padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: aquamarine;
+  color: white;
+  margin-left: 10px; 
+}
+
+button:hover {
+  opacity: 0.8;
 }
