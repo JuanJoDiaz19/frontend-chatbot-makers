@@ -41,13 +41,8 @@ sendMessageToGemini("How many laptops are there?")
         console.error("Error al enviar mensaje a Gemini:", error);
     });
 
-
-
 /*async function testQuestion() {
     const message = "How many laptops are there?";
     const response = await sendMessageToGemini(message);
     console.log("Response from Gemini:", response);
-}
-
-*/
-
+}*/
