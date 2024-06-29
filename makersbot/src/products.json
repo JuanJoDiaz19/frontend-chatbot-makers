@@ -1,0 +1,26 @@
+{
+    "products": [
+      {
+        "category": "computers",
+        "brand": "HP",
+        "quantity": 2,
+        "features": "Intel i7, 16GB RAM, 512GB SSD",
+        "price": 1200
+      },
+      {
+        "category": "computers",
+        "brand": "Dell",
+        "quantity": 1,
+        "features": "Intel i5, 8GB RAM, 256GB SSD",
+        "price": 900
+      },
+      {
+        "category": "computers",
+        "brand": "Apple",
+        "quantity": 1,
+        "features": "M1 Chip, 8GB RAM, 256GB SSD",
+        "price": 1500
+      }
+    ]
+  }
+  
