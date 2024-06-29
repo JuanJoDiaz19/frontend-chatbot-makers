@@ -1,11 +1,15 @@
-.App {
+.App{
+  height: 100vh;
+}
+
+.chat-wrapper{ 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden; 
-  padding: 0px 10px;
+  padding: 2rem 0;
 }
 
 .chat {
@@ -14,7 +18,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex: 1;
-  width: 100%;
+  width: 50%;
   overflow: auto; 
   padding: 10px;
   margin: 10px;
