@@ -4,18 +4,17 @@ import './home-page-styles.css';
 function HomePage() {
   return (
     <div style={{
-        //height: '90vh',
         display: 'flex',
         justifyContent: 'center'
     }}
     >
         <section style={{
-            width: '60%',
+            width: '50%',
             padding: '40px'
         }}>
             
             <div style={{display: 'flex', alignItems: 'center', marginBottom: '2rem'}}>
-                <img src="./makers-logo.png" style={{height: '10rem'}} alt="" />
+                <img src="./makers-logo.png" style={{height: '8rem'}} alt="" />
                 <h1 style={{
                     fontSize: '3rem',
                     paddingLeft: '2rem'

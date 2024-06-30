@@ -1,0 +1,33 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading-image {
+    width: 200px; 
+    height: auto;
+    animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3; 
+    }
+    100% {
+        opacity: 1;
+    }
+}
