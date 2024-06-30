@@ -1,4 +1,10 @@
 .list-item-nav-bar {
-    margin-right: 2rem;
+    padding: 5px 10px;
+    border-radius: 0.3rem;
     font-size: large;
+    border: rgba(0,0,0,0.2) 1px solid;
+}
+
+.list-item-nav-bar:hover {
+    background-color: #f4f4f4;
 }

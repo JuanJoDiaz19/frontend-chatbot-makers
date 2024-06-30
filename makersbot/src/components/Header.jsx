@@ -6,7 +6,7 @@ function Header() {
   return (
     <header style={{
         height: '4rem',
-        padding: '0 20%',
+        padding: '0 25%',
         display: 'flex',
         alignItems: 'center',
         borderBottom: '#D3D3D3 2px solid',
@@ -34,14 +34,23 @@ function Header() {
             <ul style={{listStyleType: 'none', display: 'flex'}}>
                 <Link to={'/'} 
                         style={{textDecoration: 'none',
-                                color: 'inherit'}}> 
+                                color: 'inherit',
+                                paddingRight: '2rem'}}> 
                         <li className='list-item-nav-bar'>Home</li> 
                 </Link>
 
                 <Link to={'/chatbot'} 
-                    style={{textDecoration: 'none',
-                            color: 'inherit'}}> 
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                        paddingRight: '2rem'}}> 
                     <li className='list-item-nav-bar'>Chatbot</li> 
+                </Link>
+                <Link to={'/inventory'} 
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit'}}> 
+                    <li className='list-item-nav-bar'>Inventory</li> 
                 </Link>
             </ul>
         </nav>

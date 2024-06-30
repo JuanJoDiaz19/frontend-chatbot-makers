@@ -1,22 +1,33 @@
+import { retrieveAllCategoriesWithProducts } from "./api/ProductsApiService";
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-
 
 const apiKey = "AIzaSyBJKci2o_V81-lHcYFcmDIUtFCAX37p3_8";
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
-async function sendMessageToGemini(userQuestion) {
+export async function sendMessageToGemini(userQuestion) {
     try {
-        const products = [
-            { category: 'Laptops', brand: 'ExampleBrand', quantity: 10, features: 'Example features', price: 999 },
-            { category: 'Smartphones', brand: 'AnotherBrand', quantity: 5, features: 'Another features', price: 599 }
-        ];
+
+        let inventory = []; // Correct declaration
+
+        await retrieveAllCategoriesWithProducts()
+        .then(response => {
+            inventory = response.data; // Assigning response to inventory
+            console.log('Inventory:', inventory); // Log the inventory if needed
+        })
+        .catch(error => console.error('Error retrieving inventory:', error)); // Proper error handling
+
 
         let contextString = `User question: ${userQuestion}\nProduct inventory information:\n`;
-        products.forEach(product => {
-            contextString += `- Category: ${product.category}, Brand: ${product.brand}, Quantity: ${product.quantity}, Features: ${product.features}, Price: ${product.price}\n`;
+
+        inventory.forEach(category => {
+            contextString += `- Category: ${category.name} Products: \n`;
+            category.products.forEach(product => {
+                contextString += `* product name: ${product.name} quantity: ${product.quantity}, characteristics: ${product.characteristics}, price: ${product.price}, score: ${product.score}, \n`;
+            });
         });
+       
 
         console.log("Contexto:", contextString); 
 
@@ -35,8 +46,3 @@ async function sendMessageToGemini(userQuestion) {
         throw error;
     }
 }
-
-module.exports = {
-    sendMessageToGemini
-};
-
