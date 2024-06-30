@@ -4,6 +4,8 @@ import ChatBotPage from '../pages/ChatBot';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HomePage from '../pages/HomePage';
+import ErrorPage from '../pages/ErrorPage';
+import InventoryPage from '../pages/InventoryPage';
 
 
 function Router() {
@@ -13,6 +15,8 @@ function Router() {
             <Routes>
                 <Route path="/" element = { <HomePage/> }/>
                 <Route path="/chatbot" element = { <ChatBotPage/> }/>
+                <Route path="/inventory" element = { <InventoryPage/> }/>
+                <Route path="/*" element = { <ErrorPage/> }/>
             </Routes>
         <Footer/>
     </BrowserRouter>
