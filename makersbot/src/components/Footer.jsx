@@ -18,7 +18,7 @@ function Footer() {
                 <h3>Desarrollado por</h3>
                 <ul>
                     <li>Juan Jose Diaz</li>
-                    <li>Camila Amaya</li>
+                    <li>María Camila Amaya</li>
                 </ul>
             </div>
         </div>
