@@ -9,7 +9,7 @@ const genAI = new GoogleGenerativeAI(apiKey);
 async function sendMessageToGemini(userQuestion) {
     try {
         const products = [
-            { category: 'Laptops', brand: 'ExampleBrand', quantity: 10, features: 'Example features', price: 999 },
+            { category: 'Laptops', brand: 'ExampleBrand', quantity: 10, features: 'big scale', price: 999 },
             { category: 'Smartphones', brand: 'AnotherBrand', quantity: 5, features: 'Another features', price: 599 }
         ];
 
@@ -25,10 +25,9 @@ async function sendMessageToGemini(userQuestion) {
         const resultPromise = model.generateContent(contextString);
         const result = await resultPromise;
 
-        //let response = result.response.text()
-        //console.log(marked(response))
-
-        return result.response.text();
+        let response = result.response.text();
+        response = response.replace(/\*/g, '');
+        return response;
 
     } catch (error) {
         console.error("Error sending message to Gemini:", error);
