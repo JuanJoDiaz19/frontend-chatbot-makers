@@ -1,12 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { retrieveAllCategoriesWithProducts } from '../api/ProductsApiService';
+import { deleteOneProduct, retrieveAllCategoriesWithProducts } from '../api/ProductsApiService';
 import './inventory-page-styles.css';
-import { Category } from '@mui/icons-material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Loading from '../components/Loading';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
 
 function InventoryPage() {
 
     const [categories, setCategories] = useState([]);
+
+    const handleDelete = async (id) => {
+        
+        await deleteOneProduct(id);
+        retrieveAllCategoriesWithProducts()
+            .then(
+                response => setCategories(response.data)
+            )
+            
+    };
+
+    const handleEdit = (id) => {
+        console.log("Editar ", id);
+        //Do something
+    }
 
     useEffect(()=> {
         retrieveAllCategoriesWithProducts()
@@ -22,18 +39,29 @@ function InventoryPage() {
                 <Loading/>
             ) : (
                 <>
-                    {categories.map(category => (
-                        <div key={category.id}>
+                    {categories.map((category, index) => (
+                        <div key={index}>
                             <h2>{category.name} ({category.products.length})</h2>
                             {category.products.map(product => (
                                 <div className='product-card' key={product.id}>
-                                    <h5>{product.name}</h5>
-                                    <ul>
-                                        <li><strong>Quantity:</strong> {product.quantity}</li>
-                                        <li><strong>Characteristics:</strong> {product.characteristics}</li>
-                                        <li><strong>Price:</strong> {product.price}</li>
-                                        <li><strong>Score:</strong> {product.score}</li>
-                                    </ul>
+                                    <div>
+                                        <h5>{product.name}</h5>
+                                        <ul>
+                                            <li><strong>Quantity:</strong> {product.quantity}</li>
+                                            <li><strong>Characteristics:</strong> {product.characteristics}</li>
+                                            <li><strong>Price:</strong> {product.price}</li>
+                                            <li><strong>Score:</strong> {product.score}</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <IconButton aria-label="edit" style={{width: 'auto'}}>
+                                            <EditIcon/>
+                                        </IconButton>
+                                        <IconButton aria-label="delete" style={{width: 'auto'}} onClick={() => {handleDelete(product.id)}}>
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </div>
                                 </div>
                             ))}
                         </div>

@@ -43,11 +43,6 @@ function HomePage() {
                 </div>
 
                 <div className="section">
-                    <h2>Exposition Highlights</h2>
-                    <p>In our recent exposition, we showcased how our ChatBot exceeds industry standards for ecommerce automation in a concise 1-minute 30-second presentation.</p>
-                </div>
-
-                <div className="section">
                     <h2>Value Proposition</h2>
                     <p>Acquiring our ChatBot will revolutionize Makers Tech's ecommerce strategy:</p>
                     <ul className="list">
