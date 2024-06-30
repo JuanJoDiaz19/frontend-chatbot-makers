@@ -1,25 +1,25 @@
-const fs = require('fs');
-const { sendMessageToGemini } = require('./geminiapi');
+import React from 'react';
 
-async function testGeminiAPI() {
-    const message = "How many computers are currently available?";
-
+async function convertMarkdownToHtml(markdownText) {
     try {
-        const productsData = JSON.parse(fs.readFileSync('products.json', 'utf-8'));
-        const products = productsData.products;
+        const { default: ReactMarkdown } = await import('react-markdown');
 
-        let context = "Product inventory information:\n";
-
-        products.forEach(product => {
-            context += `Category: ${product.category}, Brand: ${product.brand}, Quantity: ${product.quantity}, Features: ${product.features}, Price: $${product.price}\n`;
-        });
-
-        const response = await sendMessageToGemini(message, context);
-        console.log("Respuesta de Gemini:", response);
+        let html = ReactMarkdown.renderToString(markdownText);
+        return html;
     } catch (error) {
-        console.error("Error al enviar mensaje a Gemini:", error);
+        console.error('Error converting Markdown to HTML:', error);
+        return null;
     }
 }
 
-testGeminiAPI();
+// Ejemplo de uso
+let markdownText = `
+# Título
 
+Este es un texto en **Markdown**.
+`;
+
+(async () => {
+    let html = await convertMarkdownToHtml(markdownText);
+    console.log(html);
+})();

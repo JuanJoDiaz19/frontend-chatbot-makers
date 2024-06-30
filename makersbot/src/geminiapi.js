@@ -1,6 +1,7 @@
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
+
 const apiKey = "AIzaSyBJKci2o_V81-lHcYFcmDIUtFCAX37p3_8";
 
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -24,6 +25,9 @@ async function sendMessageToGemini(userQuestion) {
         const resultPromise = model.generateContent(contextString);
         const result = await resultPromise;
 
+        //let response = result.response.text()
+        //console.log(marked(response))
+
         return result.response.text();
 
     } catch (error) {
@@ -32,16 +36,7 @@ async function sendMessageToGemini(userQuestion) {
     }
 }
 
-sendMessageToGemini("How many laptops are there?")
-    .then(response => {
-        console.log("Respuesta de Gemini:", response);
-    })
-    .catch(error => {
-        console.error("Error al enviar mensaje a Gemini:", error);
-    });
+module.exports = {
+    sendMessageToGemini
+};
 
-/*async function testQuestion() {
-    const message = "How many laptops are there?";
-    const response = await sendMessageToGemini(message);
-    console.log("Response from Gemini:", response);
-}*/
