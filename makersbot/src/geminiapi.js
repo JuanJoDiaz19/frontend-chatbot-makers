@@ -1,5 +1,3 @@
-const fs = require('fs');
-require('dotenv').config();
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -23,10 +21,11 @@ async function sendMessageToGemini(userQuestion) {
 
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-        const resultPromise = model.generateContent({ prompt: contextString });
+        const resultPromise = model.generateContent(contextString);
         const result = await resultPromise;
 
         return result.response.text();
+
     } catch (error) {
         console.error("Error sending message to Gemini:", error);
         throw error;
