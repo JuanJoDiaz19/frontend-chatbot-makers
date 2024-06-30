@@ -1,58 +1,46 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './chat-bot-page-styles.css';
-import {run} from '../geminiapi'; 
+import { sendMessageToGemini } from '../geminiapi'; 
 
 function ChatBotPage() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    console.log(process.env.REACT_APP_GEMINI_API_KEY)
-  }, [])
+  const handleSend = async () => {
+    try {
+      const response = await sendMessageToGemini(input); 
+      setMessages([
+        ...messages,
+        { type: "user", content: input }, 
+        { type: "bot", content: response } 
+      ]);
+      setInput(""); // Limpiar el campo de entrada después de enviar el mensaje
+    } catch (error) {
+      console.error("Error sending message:", error);
+      // Puedes manejar el error de otra manera, por ejemplo, mostrando un mensaje al usuario
+    }
+  };
 
-  const handleSend = () => {
-    run("hello");
-  }
-  
-  
   return (
     <div className="App">
       <div className="chat-wrapper">
         <div className="chat">
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-          
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
-
-          <div className="user-message">this is a user message</div>
-          <div className="bot-message">this is a both message</div>
+          {messages.map((message, index) => (
+            <div key={index} className={`${message.type}-message`}>
+              {message.content}
+            </div>
+          ))}
         </div>
-
-          <div className="input-container">
-            <input 
-              type="text" 
-              value={input} 
-              onChange={e => setInput(e.target.value)} 
-            />
-          </div>
+        <div className="input-container">
+          <input 
+            type="text" 
+            value={input} 
+            onChange={e => setInput(e.target.value)} 
+            placeholder="Type your message..."
+          />
           <button onClick={handleSend}>Send</button>
-        </div>   
+        </div>
+      </div>
     </div>
   );
 }
