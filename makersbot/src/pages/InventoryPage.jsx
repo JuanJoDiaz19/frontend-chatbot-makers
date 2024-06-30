@@ -55,9 +55,6 @@ function InventoryPage() {
                                     </div>
                                     
                                     <div>
-                                        <IconButton aria-label="edit" style={{width: 'auto'}}>
-                                            <EditIcon/>
-                                        </IconButton>
                                         <IconButton aria-label="delete" style={{width: 'auto'}} onClick={() => {handleDelete(product.id)}}>
                                             <DeleteIcon />
                                         </IconButton>
