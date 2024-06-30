@@ -36,10 +36,9 @@ export async function sendMessageToGemini(userQuestion) {
         const resultPromise = model.generateContent(contextString);
         const result = await resultPromise;
 
-        //let response = result.response.text()
-        //console.log(marked(response))
-
-        return result.response.text();
+        let response = result.response.text();
+        response = response.replace(/\*/g, '');
+        return response;
 
     } catch (error) {
         console.error("Error sending message to Gemini:", error);

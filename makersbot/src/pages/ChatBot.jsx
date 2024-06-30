@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './chat-bot-page-styles.css';
 import { sendMessageToGemini } from '../geminiapi'; 
 import Markdown from 'react-markdown';
@@ -9,20 +9,25 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 function ChatBotPage() {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(
+    JSON.parse(localStorage.getItem("chatMessages")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("chatMessages", JSON.stringify(messages));
+  }, [messages]);
 
   const handleSend = async () => {
     try {
-      const response = await sendMessageToGemini(input); 
+      const response = await sendMessageToGemini(input);
       setMessages([
         ...messages,
-        { type: "user", content: input }, 
-        { type: "bot", content: response } 
+        { type: "user", content: input },
+        { type: "bot", content: response }
       ]);
-      setInput(""); // Limpiar el campo de entrada después de enviar el mensaje
+      setInput("");
     } catch (error) {
       console.error("Error sending message:", error);
-      // Puedes manejar el error de otra manera, por ejemplo, mostrando un mensaje al usuario
     }
   };
 
