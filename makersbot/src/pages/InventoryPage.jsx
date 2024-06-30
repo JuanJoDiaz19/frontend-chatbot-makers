@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { retrieveAllCategoriesWithProducts } from '../api/ProductsApiService';
 import './inventory-page-styles.css';
 import { Category } from '@mui/icons-material';
+import Loading from '../components/Loading';
 
 function InventoryPage() {
 
@@ -17,13 +18,30 @@ function InventoryPage() {
 
     return (
         <div className='inventory-main-container'>
-             {categories.map(category => (
-                <div key={category.id}> {/* Ensure to provide a unique key */}
-                <h2>{category.name} ({category.products.length})</h2>
-                </div>
-            ))}
-            {JSON.stringify(categories)}
+            {categories.length === 0 ? (
+                <Loading/>
+            ) : (
+                <>
+                    {categories.map(category => (
+                        <div key={category.id}>
+                            <h2>{category.name} ({category.products.length})</h2>
+                            {category.products.map(product => (
+                                <div className='product-card' key={product.id}>
+                                    <h5>{product.name}</h5>
+                                    <ul>
+                                        <li><strong>Quantity:</strong> {product.quantity}</li>
+                                        <li><strong>Characteristics:</strong> {product.characteristics}</li>
+                                        <li><strong>Price:</strong> {product.price}</li>
+                                        <li><strong>Score:</strong> {product.score}</li>
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </>
+            )}
         </div>
+
     )
 }
 

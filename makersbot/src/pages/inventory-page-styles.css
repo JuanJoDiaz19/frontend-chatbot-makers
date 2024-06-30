@@ -1,3 +1,29 @@
 .inventory-main-container {
     padding: 2rem 25%;  
 }
+
+ul { 
+    list-style-type: none;
+    padding: 0;
+}
+
+.inventory-main-container h2 {
+    padding-bottom: 3px;
+    border-bottom: black 2px solid;
+}
+
+.product-card {
+    padding: 1rem 2rem;
+    border: rgba(0, 0, 0, 0.3) 1px solid;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.product-card h5 {
+    font-size: large;
+    margin: 0;
+}
+
+.product-card li {
+    margin: 0;
+}
